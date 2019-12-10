@@ -1,0 +1,1 @@
+docker run --rm --name=alpine_bash -t -d alpine && docker exec -it alpine_bash cat /etc/os-release && docker stop alpine_bash
