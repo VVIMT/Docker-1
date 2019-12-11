@@ -1,0 +1,38 @@
+docker run -d -it --name Abathur --mount type=bind,source=/home,target=/root -p 192.168.99.100:3000:3000 python:2-slim
+docker exec -it Abathur bash
+apt-get update -y && apt-get upgrade -y
+apt-get install python-virtualenv
+mkdir myproject
+cd myproject/
+pip install -U https://github.com/pallets/flask/archive/master.tar.gz
+apt-get install nano
+
+touch hello-world.py
+cat > hello-world.py << EOF
+from flask import Flask, render_template
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+	return render_template('hello.html')
+
+if __name__ == '__main__':
+	app.run(host='172.17.0.6', port=3000)
+EOF
+
+mkdir templates
+cd templates/
+touch hello.html
+cat < hello.html << EOF
+<!doctype html>
+<html>
+	<body>
+
+		<h1>Hello World</h1>
+
+	</body>
+</html>
+EOF
+
+cd ..
+python hello-world.py
