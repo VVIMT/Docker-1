@@ -1,1 +1,2 @@
 docker run --name lair -p 192.168.99.100:8080:80 -d wordpress
+#Achtung! Utiliser spawning-pool comme base de donnees!
