@@ -1,0 +1,1 @@
+docker service logs -f engineering-bay.2.q80l7h6iwikoyyifx7wpuvqja
