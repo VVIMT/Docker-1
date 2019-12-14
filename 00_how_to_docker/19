@@ -23,7 +23,7 @@ EOF
 mkdir templates
 cd templates/
 touch hello.html
-cat < hello.html << EOF
+cat > hello.html << EOF
 <!doctype html>
 <html>
 	<body>
